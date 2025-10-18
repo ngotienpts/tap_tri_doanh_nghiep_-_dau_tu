@@ -107,8 +107,16 @@ p {
     max-width: 1920px;
     margin: 0 auto;
 }
+.w-1720 {
+    max-width: 1720px;
+    margin: 0 auto;
+}
 .w-1340 {
     max-width: 1340px;
+    margin: 0 auto;
+}
+.w-1170 {
+    max-width: 1170px;
     margin: 0 auto;
 }
 .w-1106 {
@@ -209,8 +217,7 @@ p {
     border: 1px solid transparent;
 
     &:hover {
-        background-color: #FFF7DE;
-        color: #333;
+        background-color: #087cce;
       
     }
     
@@ -1430,4 +1437,11 @@ p {
     inset: 0;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.w-iframe-full {
+    iframe {
+        width: 100%;
+        max-width: 100%;
+    }
 }

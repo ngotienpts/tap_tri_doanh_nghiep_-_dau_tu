@@ -495,7 +495,7 @@
            width: 100%;
            height: auto;
            background-color: #fff;
-           border-top: 5px solid #e9bc25;
+           border-top: 5px solid #0084FF;
            z-index: 100;
            padding: 20px;
            display: none;
@@ -660,23 +660,34 @@
    
 
     .social {
-    flex-wrap: wrap;
-    }
-    .social-link {
-    border: 1px solid #737373;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;   
+        flex-wrap: wrap;
 
-    img {
-        height: 16px;
-        width: auto;
+        &-link {
+            border: 1px solid #737373;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;   
+
+            img {
+                height: 16px;
+                width: auto;
+            }
+            &:hover {
+                border-color: #FF006E;
+            }
+        }
+
+        &-item {
+            &--zalo {
+                .social-link {
+                    img {
+                        height: 24px;
+                    }
+                }
+            }
+        }
     }
-    }
-    .social-link:hover {
-    border-color: #FF006E;
-}
 }
