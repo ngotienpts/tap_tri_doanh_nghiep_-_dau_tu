@@ -170,17 +170,18 @@
             }
         }
     }
-
+    
     .detail-video-primary {
         &__right {
             max-height: 100%;
             overflow: unset;
-
+            
             .article-title {
                 font-size: 24px;
             }
         }
     }
+   
 
 
     // --------------------------------------------------------------------detail
@@ -291,6 +292,29 @@
         &__content {
             .articles {
                 grid-template-columns: repeat(2,1fr);
+            }
+        }
+    }
+     // --------------------------------------------------- bao in
+    .paper-newspaper-primary {
+        &__heading {
+            .heading-right {
+                margin-top: 20px;
+            }
+            .fillter-day__input,
+            .fillter-day__btn {
+                width: 100%;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+        }
+
+        &__content {
+            .article-list {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .article-item {
+                margin-bottom: 30px;
             }
         }
     }
