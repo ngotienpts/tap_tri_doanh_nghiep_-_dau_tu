@@ -28,11 +28,22 @@
             max-height: 530px;
             overflow: auto;
             padding: 15px;
-
+            
             .article-title {
                 font-size: 30px;
             }
         }
+    }
+    // --------------------------------------- bao in detail
+    .newspapers-container .content .left {
+        padding: 80px 50px 40px;
+    }
+    .newspapers-container .content .left .logo img {
+        height: 90px;
+        width: auto;
+    }
+    .newspapers-container .content .left .sapo {
+        font-size: 20px;
     }
 
     // --------------------------------------------------------------------detail
@@ -181,6 +192,41 @@
             }
         }
     }
+    // --------------------------------------------------- bao in detail
+     .newspapers-container {
+    flex-direction: column;
+  }
+  .newspapers-container .sidebar {
+    order: 2;
+    width: 100%;
+    padding-top: 40px;
+  }
+  .newspapers-container .sidebar .back-home {
+    position: fixed;
+    z-index: 20;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+  .newspapers-container .content {
+    order: 1;
+    width: 100%;
+    height: auto;
+    overflow: unset;
+    display: block;
+    padding: 10px;
+  }
+  .newspapers-container .content .left {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  .newspapers-container .content .right {
+    width: 100%;
+    height: auto;
+  }
    
 
 
@@ -296,8 +342,8 @@
         }
     }
      // --------------------------------------------------- bao in
-    .paper-newspaper-primary {
-        &__heading {
+     .paper-newspaper-primary {
+         &__heading {
             .heading-right {
                 margin-top: 20px;
             }
@@ -308,13 +354,31 @@
                 margin-left: 0;
             }
         }
-
+        
         &__content {
             .article-list {
                 grid-template-columns: repeat(2,1fr);
             }
             .article-item {
                 margin-bottom: 30px;
+            }
+        }
+    }
+    // --------------------------------------------------- author
+    .profile-author {
+        &__container {
+            .profile-one {
+                .article-img {
+                    width: 50%;
+                    margin: auto;
+                }
+                .article-content {
+                    margin-left: 0;
+                    margin-top: 20px;
+                }
+                .article-title {
+                    text-align: center;
+                }
             }
         }
     }
@@ -407,6 +471,12 @@
     .w-sm-full {
         width: 100%;
     }
+    .fs-sm-16 {
+        font-size: 16px;
+    }
+    .fs-sm-18 {
+        font-size: 18px;
+    }
 
     // --------------------------------------------------------------------header
 
@@ -434,11 +504,11 @@
             .article {
                 padding: 15px 0;
                 border-bottom: 1px solid #e5e5e5;
-
+                
                 &:first-child {
                     padding-top: 0;
                 }
-
+                
                 &:last-child {
                     padding-bottom: 0;
                     border-bottom: none;
@@ -446,13 +516,26 @@
             }
         }
     }
-
+    
     .detail-video-primary {
         &__right {
             .article-title {
                 font-size: 20px;
             }
         }
+    }
+    // ---------------------------------------------------bao in detail
+    .newspapers-container .sidebar {
+        padding-top: 20px;
+    }
+    .newspapers-container .sidebar .list {
+        height: calc(100% - 50px);
+    }
+    .newspapers-container .content .swiper-button-next:after,
+    .newspapers-container .content .swiper-rtl .swiper-button-prev:after,
+    .newspapers-container .content .swiper-button-prev:after,
+    .newspapers-container .content .swiper-rtl .swiper-button-next:after {
+        font-size: 15px;
     }
     // -------------------------------------------------------------------- detail
      p + p {
@@ -543,6 +626,9 @@
     // --------------------------------------------------------------------header
     // --------------------------------------------------------------------index
     // --------------------------------------------------------------------cate
+    .newspapers-container .sidebar .list {
+        height: calc(100% - 40px);
+    }
     // --------------------------------------------------------------------detail
 
     // --------------------------------------------------------------------footer

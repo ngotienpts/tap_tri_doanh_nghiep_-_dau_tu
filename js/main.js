@@ -276,6 +276,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Xử lý khi width nhở hơn 1024
+    function handleResizeWidth() {
+        const sidebar = document.querySelector(".js__sidebar");
+        const content = document.querySelector(".js__content");
+        if(sidebar && content){
+            if (window.innerWidth <= 700) {
+                sidebar.style.height = screen.height - content.offsetHeight + "px";
+            } else {
+                sidebar.style.height = "100%";
+            }
+        }
+    }
+
     // khởi tạo slider với nhiều item có width auto
     function initSliderAutoItems() {
         const autoSlides = document.querySelectorAll(".js__autoSlideContainer");
@@ -325,6 +338,91 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
+     // Khởi tạo slider với 2 item
+    function initSliderTwoItems() {
+        const twoSlides = document.querySelectorAll(".js__twoSlidesContainer");
+        const items = document.querySelectorAll(".js__itemChildren");
+        if (twoSlides) {
+            twoSlides.forEach((item) => {
+                var slider = item.querySelector(".js__twoSlide");
+                var next = item.querySelector(".swiper-button-next");
+                var prev = item.querySelector(".swiper-button-prev");
+                var slides = slider.querySelectorAll(".swiper-slide");
+
+                if (window.innerWidth <= 1024) {
+                    slides.forEach((slide) => {
+                        if (slide.querySelector(".empty")) {
+                            slide.style.display = "none";
+                        }
+                    });
+
+                    // items.forEach((item) => {
+                    //     if (item.querySelector(".empty")) {
+                    //         item.style.display = "none";
+                    //     }
+                    // });
+                }
+
+                var swiper = new Swiper(slider, {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: false,
+                    navigation: {
+                        nextEl: next || null,
+                        prevEl: prev || null,
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            slidesPerGroup: 1,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            slidesPerGroup: 1,
+                        },
+                        1024: {
+                            slidesPerView: 1,
+                            slidesPerGroup: 1,
+                        },
+                        1200: {
+                            slidesPerView: 2,
+                            slidesPerGroup: 2,
+                        },
+                    },
+                });
+
+                // Thêm sự kiện lắng nghe cho các phím mũi tên
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "ArrowRight") {
+                        swiper.slideNext();
+                    } else if (event.key === "ArrowLeft") {
+                        swiper.slidePrev();
+                    }
+                });
+
+                // Thêm sự kiện khi click vào tab bên trái thì sẽ chuyển đến slide tương ứng
+                items.forEach(function (item, index) {
+                    item.addEventListener("click", function () {
+                        var itemActive = document.querySelector(
+                            ".js__itemChildren.active"
+                        );
+                        itemActive.classList.remove("active");
+                        this.classList.add("active");
+
+                        // var index = this.getAttribute("data-index");
+                        swiper.slideTo(index);
+
+                        if (window.innerWidth <= 1024) {
+                            swiper.slideTo(index - 1);
+                        }
+                    });
+                });
+            });
+        }
+    }
+  
 
     // Xử lý thanh header dính
     function handleStickyHeader() {
@@ -383,9 +481,11 @@ document.addEventListener("DOMContentLoaded", function () {
         initStickyContent();
         handleShowPopupLogin();
         handleShowDropdown();
+        handleResizeWidth();
         // slide
         initSliderOneItems();
         initSliderAutoItems();
+        initSliderTwoItems();
         // scroll
         window.addEventListener('scroll',handleWindowScroll);
         window.addEventListener('resize',handleWindowScroll);
